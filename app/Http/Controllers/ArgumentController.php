@@ -86,4 +86,16 @@ class ArgumentController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+        if($request->has('descrizione') && $request->has('s')) {
+            $arguments = Argument::where('description', 'LIKE', '%' . $request->descrizione . '%')
+                                    ->orWhere('title', 'LIKE', '%' . $request->descrizione . '%')
+                                    ->get();
+        } else {
+            $arguments = Argument::all();
+        }
+        return $arguments;
+    }
 }

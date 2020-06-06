@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware(['api'])->group(function () {
     Route::post('/argument', 'ArgumentController@store');
+    Route::get('/argument', 'ArgumentController@search');
 });
