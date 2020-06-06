@@ -50,7 +50,7 @@ class ArgumentController extends Controller
      */
     public function show($id)
     {
-        //
+        return Argument::find($id);
     }
 
     /**
