@@ -22,4 +22,5 @@ Route::middleware(['api'])->group(function () {
     Route::post('/argument', 'ArgumentController@store');
     Route::get('/argument', 'ArgumentController@search');
     Route::get('/argument/{id}', 'ArgumentController@show');
+    Route::post('/argument/{id}/update', 'ArgumentController@update');
 });

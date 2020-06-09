@@ -73,7 +73,13 @@ class ArgumentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $argument = Argument::findOrFail($id);
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+        $input = $request->all();
+        $argument->fill($input)->save();
     }
 
     /**
